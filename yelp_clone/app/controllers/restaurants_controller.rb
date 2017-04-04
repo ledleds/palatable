@@ -4,4 +4,8 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
+  def show
+    # @review = Review.create(review_params)
+  end
+
 end

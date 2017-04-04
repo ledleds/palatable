@@ -2,6 +2,7 @@
   <% @restaurants.each do |restaurant| %>
     <h2><%= restaurant.name %></h2>
     <h3>Rating: <%= restaurant.rating %></h3>
+    <a class="button" href="/restaurants/:id">Review <%= restaurant.name %></a>
     <% end %>
 <% else %>
   <h1>No restaurants have been listed yet, click below to add a new resturant.</h1>
