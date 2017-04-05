@@ -1,13 +1,3 @@
-<!-- This erb has been designed to save a numerical rating of a restaurant. WIP. -->
-
-<%= form_for @review do |f| %>
-  <%= f.radio_button_tag(:one, "1") %>
-  <%= label_tag(:age_child, "I am younger than 21") %>
-  <%= f.radio_button_tag(:two, "2") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
-  <%= f.radio_button_tag(:three, "3") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
-  <%= f.radio_button_tag(:four, "4") %>
-  <%= label_tag(:age_adult, "I'm over 21") %>
-  <%= f.radio_button_tag(:five, "5") %>
-<% end %>
+<h2><%= @restaurant.name %></h2>
+<h3>Rating: <%= @restaurant.rating %></h3>
+<a class="button" href="/restaurants/<%= @restaurant.id %>/reviews/new">Review <%= @restaurant.name %></a>

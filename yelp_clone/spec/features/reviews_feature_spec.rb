@@ -7,11 +7,12 @@ feature 'reviews', focus: true do
 
     scenario 'leave a numerical rating for a restaurant' do
       visit '/restaurants'
-      click_link 'Review Pret'
-      select '4', from: 'review_rating'
-      click_button 'Submit'
+      click_link 'Pret'
       expect(page).to have_content('Pret')
-      expect(page).to have_content('4')
+      click_link 'Review Pret'
+      select '4', from: 'Rating'
+      click_button 'Submit Review'
+      expect(page).to have_content('Pret')
     end
   end
 end
