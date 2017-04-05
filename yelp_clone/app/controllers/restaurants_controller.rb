@@ -10,7 +10,6 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    # p @review = Review.all(:restaurant_id => @restaurant.id)
   end
 
   def create
