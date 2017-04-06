@@ -1,7 +1,9 @@
 <% if @restaurants.any? %>
   <% @restaurants.each do |restaurant| %>
-    <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
-    <h3>Rating: <%= restaurant.average_rating %></h3>
+    <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2><p>
+    <h3>Rating: <%= restaurant.average_rating %></h3><p>
+    <h3>Description: <%= restaurant.description %></h3><p>
+    <h3><%= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant) %></h3>
     <% end %>
 <% else %>
   <h1>No restaurants have been listed yet, click below to add a new restaurant.</h1>
