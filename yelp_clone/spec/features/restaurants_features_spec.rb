@@ -9,25 +9,10 @@ feature 'restaurants' do
     end
   end
 
-  context 'restaurants have been added' do
-    before do
-      Restaurant.create(name: 'Pret')
-    end
-
-    scenario 'display restaurants' do
-      visit '/restaurants'
-      expect(page).to have_content('Pret')
-      expect(page).not_to have_content('No restaurants have been listed yet')
-    end
-  end
-
   context 'creating restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
-      visit '/restaurants'
-      click_link 'Add a restaurant'
-      fill_in 'Name', with: 'Jasmine'
-      fill_in 'Description', with: 'Tasty, quick food'
-      click_button 'Create Restaurant'
+      create_new_restaurant_jasmine
+      expect(page).not_to have_content 'No restaurants have been listed yet'
       expect(page).to have_content 'Jasmine'
       expect(current_path).to eq '/restaurants'
     end
@@ -56,12 +41,7 @@ feature 'restaurants' do
     end
 
     scenario 'average rating shows on index page and restaurant show page' do
-      visit '/restaurants'
-      click_link 'Pret'
-      click_link 'Review Pret'
-      fill_in 'Comment', with: 'Very nice'
-      select '4', from: 'Rating'
-      click_button 'Submit Review'
+      create_review_for_pret
       expect(page).to have_content "4"
       click_link 'Review Pret'
       fill_in 'Comment', with: 'Super'
