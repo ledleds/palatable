@@ -25,9 +25,10 @@ feature 'restaurants' do
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
       visit '/restaurants'
       click_link 'Add a restaurant'
-      fill_in 'Name', with: 'Pret'
+      fill_in 'Name', with: 'Jasmine'
+      fill_in 'Description', with: 'Tasty, quick food'
       click_button 'Create Restaurant'
-      expect(page).to have_content 'Pret'
+      expect(page).to have_content 'Jasmine'
       expect(current_path).to eq '/restaurants'
     end
 
@@ -69,6 +70,34 @@ feature 'restaurants' do
       expect(page).to have_content "4.5"
       visit '/restaurants'
       expect(page).to have_content "4.5"
+    end
+  end
+
+  context 'editing restaurants' do
+
+    before { Restaurant.create name: 'Pret', description: 'Tasty quick lunch', id: 1 }
+    scenario 'let a user edit a restaurant' do
+      visit '/restaurants'
+      click_link 'Edit Pret'
+      fill_in 'Name', with: 'Pret'
+      fill_in 'Description', with: 'Tasty quick lunch for people on the go'
+      click_button 'Update Restaurant'
+      click_link 'Pret'
+      expect(page).to have_content 'Pret'
+      expect(page).to have_content 'Tasty quick lunch for people on the go'
+      expect(current_path).to eq '/restaurants/1'
+    end
+  end
+
+  context 'deleting restaurants' do
+
+    before { Restaurant.create name: 'Cafe', description: 'Unique' }
+
+    scenario 'removes a restaurant when a user clicks a delete link' do
+      visit '/restaurants'
+      click_link 'Delete Cafe'
+      expect(page).not_to have_content 'Cafe'
+      expect(page).to have_content 'Restaurant deleted successfully'
     end
   end
 end
