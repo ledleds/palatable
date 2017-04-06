@@ -9,6 +9,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url
+      flash[:notice] = 'There is an account associated with this email, please sign up with an alternative email.'
     end
   end
 
