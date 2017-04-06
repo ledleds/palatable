@@ -66,6 +66,7 @@ feature 'restaurants' do
     scenario 'let a user edit a restaurant' do
       sign_up
       visit '/restaurants'
+      click_link 'Pret'
       click_link 'Edit Pret'
       fill_in 'Name', with: 'Pret'
       fill_in 'Description', with: 'Tasty quick lunch for people on the go'
@@ -89,6 +90,7 @@ feature 'restaurants' do
     scenario 'removes a restaurant when a user clicks a delete link' do
       sign_up
       visit '/restaurants'
+      click_link 'Cafe'
       click_link 'Delete Cafe'
       expect(page).not_to have_content 'Cafe'
       expect(page).to have_content 'Restaurant deleted successfully'
