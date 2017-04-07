@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Palatable</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
 
   <!-- Latest compiled and minified CSS -->
@@ -17,14 +18,18 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 </head>
 <body>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <div id= "header">
-    <div id="palatable"><b>Palatable</b></div>
+  <div id="header">
+    <div id="palatable">
+      <%=image_tag("tongue.png", size: "50x50")%>
+      <b><%= link_to "Palatable", restaurants_path%></b>
+
+      <!-- <img src="./images/tongue.png"> -->
+    </div>
     <div id= "buttons">
       <% if user_signed_in? %>
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
@@ -34,9 +39,11 @@
     <% end %>
   </div>
 </div>
-<div id="content">
-<%= yield %>
-</div>
+
+  <div id="content">
+  <%= yield %>
+  </div>
+
 
 </body>
 </html>

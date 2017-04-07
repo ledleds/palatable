@@ -1,12 +1,13 @@
-<% if @restaurants.any? %>
-  <% @restaurants.each do |restaurant| %>
-  <div id="restaurants"><h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2><p>
-    Rating: <%= star_rating(restaurant.average_rating) %><p>
-    Description: <%= restaurant.description %><p>
-</div>
+<a id="add_rest" href="/restaurants/new">Add a restaurant</a>
+<div class="row">
+  <% if @restaurants.any? %>
+    <% @restaurants.each do |restaurant| %>
+    <div id="restaurants" class="col-md-6"><h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2><p>
+      Rating: <%= star_rating(restaurant.average_rating) %><p>
+      Description: <%= restaurant.description %><p>
+  </div>
+    <% end %>
+  <% else %>
+    <h1>No restaurants have been listed yet, click below to add a new restaurant.</h1>
   <% end %>
-<% else %>
-  <h1>No restaurants have been listed yet, click below to add a new restaurant.</h1>
-<% end %>
-
-<a href="/restaurants/new">Add a restaurant</a>
+</div>
