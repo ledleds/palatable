@@ -1,5 +1,5 @@
 <div><%= @restaurant.name %>
-Average Rating: <%= @restaurant.average_rating %>
+Average Rating: <%= star_rating(@restaurant.average_rating) %>
 Description: <%= @restaurant.description %></p>
 
 <% if user_signed_in? %>
