@@ -54,9 +54,9 @@ feature 'restaurants' do
       fill_in 'Comment', with: 'Super'
       select '5', from: 'Rating'
       click_button 'Submit Review'
-      expect(page).to have_content "4.5"
+      expect(page).to have_content "★★★★★"
       visit '/restaurants'
-      expect(page).to have_content "4.5"
+      expect(page).to have_content "★★★★★"
     end
   end
 

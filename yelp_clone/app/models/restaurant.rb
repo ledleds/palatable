@@ -3,7 +3,7 @@ class Restaurant < ActiveRecord::Base
     validates :name, length: { minimum: 3 }, uniqueness: true
 
   def average_rating
-    reviews.average(:rating)
+      reviews.average(:rating)
   end
 
 end
