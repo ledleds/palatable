@@ -2,6 +2,7 @@ feature 'reviews', focus: true do
 
   context 'ratings' do
     before do
+      sign_up
       Restaurant.create(name: 'Pret')
     end
 
@@ -15,6 +16,7 @@ feature 'reviews', focus: true do
       click_button 'Submit Review'
       expect(page).to have_content('Pret')
       expect(page).to have_content('Very nice')
+      expect(page).to have_content('test@example.com')
     end
   end
 end

@@ -8,6 +8,6 @@ Description: <%= @restaurant.description %></p>
 <% end %>
 
 <% @restaurant.reviews.each do |review| %>
-<div id="rating"> <em>"<%= review.comment %>"</em> <br> Rating: <%= review.rating %> Stars</div>
+<div id="rating"> <em>"<%= review.comment %>" </em>By: <%= User.find(review.user_id).email %> <br> Rating: <%= review.rating %> Stars</div>
 <% end %>
 <a class="button" href="/restaurants/<%= @restaurant.id %>/reviews/new">Review <%= @restaurant.name %></a></div>

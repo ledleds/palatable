@@ -48,6 +48,7 @@ feature 'restaurants' do
     end
 
     scenario 'average rating shows on index page and restaurant show page' do
+      sign_up
       create_review_for_pret
       expect(page).to have_content "4"
       click_link 'Review Pret'
