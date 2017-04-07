@@ -13,9 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+html {
+  background-color: #9ab5d1;
+}
+
+a {
+  color: #527F67;
+}
+
 body {
   margin: 0;
-  padding: 0;
+  font-family: 'Varela Round', sans-serif;
+}
+
+#content {
+  margin-left: 1%;
+  margin-top: 5%;
+  width: 300px;
+  padding: 0px;
+}
+
+#restaurants {
+  margin: 1%;
+  width: 300px;
+  background-color: pink;
+  padding: 10px;
 }
 
 #header {
@@ -24,7 +47,14 @@ body {
  background-color: pink;
  position: fixed;
  top: 0;
+ padding: 10px;
 }
+
+#palatable {
+   float: left;
+   font-size: 40px;
+   margin: 0px;
+ }
 
 #buttons {
    padding-right: 1%;
