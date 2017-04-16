@@ -1,10 +1,13 @@
-<%= form_for @restaurant do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :description %>
-  <%= f.text_area :description %>
-  <%= f.submit %>
-<% end %>
+<h2 id="create-new-rest">Create a new restaurant</h2>
+<div class="form-wrapper">
+  <%= form_for @restaurant do |f| %>
+    <div class="text-box"><%= f.label :name %></div>
+    <div class="text-box"><%= f.text_field :name %></div>
+    <div class="text-box"><%= f.label :description %></div>
+    <div class="text-box"><%= f.text_area :description %></div>
+    <div id="submit"><%= f.submit %></div>
+  <% end %>
+</div>
 
 <% if @restaurant.errors.any? %>
   <section id="errors" >

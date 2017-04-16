@@ -30,24 +30,39 @@ body {
   margin: 0;
   font-family: 'Varela Round', sans-serif;
 }
-#add_rest{
-  padding-bottom: 10px;
+
+.form-wrapper {
+  width: 60%;
+  margin: 20px auto;
+  background-color: #F9FBFB;
+  padding: 40px;
+  border: 1px solid #eeefef;
+  border-radius: 3px;
 }
+
+.text-box {
+  margin: 20px auto;
+}
+
+#sumbit {
+  width: 60%;
+}
+
 #content {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5%;
   width: auto;
   padding: 1px;
-
 }
 
 #restaurants {
-  margin: 1%;
+  margin: 2%;
   width: 300px;
   background-color: pink;
-  padding: 10px;
+  padding: 14px;
   height: 170px;
+  text-align: left;
 }
 
 #header {
@@ -61,12 +76,74 @@ body {
 }
 
 #palatable {
-   float: left;
-   font-size: 40px;
-   margin: 0px;
+ float: left;
+ font-size: 40px;
+ margin: 0px;
  }
 
-#buttons {
-   padding-right: 1%;
-   float: right;
+.buttons {
+  margin: 2%;
+  padding-right: 1%;
+  float: right;
  }
+
+ #add_rest {
+   margin-left: 1%;
+ }
+
+ #create-new-rest {
+   text-align: center;
+ }
+
+ #name {
+   padding: 1%;
+   padding-left: 8%;
+   text-align: left;
+   font-size: 50px;
+ }
+
+ #rating, #description {
+   padding: 1%;
+   padding-left: 8%;
+   text-align: left;
+   font-size: 19px;
+   margin-bottom: 2%;
+ }
+
+ #rating {
+   background-color: #F2F7F7;
+ }
+
+ #edit-delete-buttons {
+   margin: 1%;
+   padding: 1%;
+   float: right;
+   background-color: white;
+  }
+
+  #review {
+    border-top: 2px solid #89e5b3;
+    border-bottom: 2px solid #89e5b3;
+    background-color: #a6edc6;
+    padding-left: 8%;
+  }
+
+  #reviews-title {
+    padding-left: 8%;
+  }
+
+  #review-link {
+    text-align: left;
+    font-size: 18px;
+    margin-top: 1%;
+    padding-left: 8%;
+  }
+
+  .single-review{
+    padding: 1%;
+  }
+
+  #comment {
+    padding-bottom: 5px;
+    font-size: 17px;
+  }
