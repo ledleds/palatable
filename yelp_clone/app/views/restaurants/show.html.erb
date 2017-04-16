@@ -1,13 +1,29 @@
-<div><%= @restaurant.name %>
-Average Rating: <%= star_rating(@restaurant.average_rating) %>
-Description: <%= @restaurant.description %></p>
+<h1 id="name"><%= @restaurant.name %></h1>
 
-<% if user_signed_in? %>
-  <%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %>
-  <%= link_to "Delete #{@restaurant.name}", restaurant_path(@restaurant), method: :delete %></div>
-<% end %>
+<div id="rating">Average Rating: <%= star_rating(@restaurant.average_rating) %></div>
+<div id="description">Description: <%= @restaurant.description %></div>
 
-<% @restaurant.reviews.each do |review| %>
-<div id="rating"> <em>"<%= review.comment %>"</em> <br> Rating: <%= review.rating %> Stars</div>
-<% end %>
-<a class="button" href="/restaurants/<%= @restaurant.id %>/reviews/new">Review <%= @restaurant.name %></a></div>
+
+<h2 id="reviews-title">Reviews</h2>
+<div id="review">
+  <% @restaurant.reviews.each do |review| %>
+  <div class="single-review">
+    <div id="comment">
+      <em>"<%= review.comment %>"</em>
+    </div>
+    <div>Rating: <%= review.rating %> Stars<br>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+<div id="review-link"><a class="button" href="/restaurants/<%= @restaurant.id %>/reviews/new">Review <%= @restaurant.name %></a></div>
+
+<br>
+
+<div id="edit-delete-buttons">
+  <% if user_signed_in? %>
+    <%= link_to "Edit #{@restaurant.name}", edit_restaurant_path(@restaurant) %> |
+    <%= link_to "Delete #{@restaurant.name}", restaurant_path(@restaurant), method: :delete %>
+  <% end %>
+</div>
